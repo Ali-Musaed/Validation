@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        #main-container {
+            width: 1470px;
+        }
+        #head {
+            width: 1470px;
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            color: black;
+        }
+    </style>
+    <title>Dojo content</title>
+</head>
+<body>
+    <h1>Cookie Orders</h1>
+        <div id = "main-container">
+            <div id = 'head'>
+                <p>All Orders:</p>
+            </div>
+            <div id="columnContainer">
+                <div id="column">
+                    <table class= 'table table-bordered table-dark'>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Cookie Type</th>
+                                <th scope="col">Number Of Boxes</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for cookie in cookies %}
+                        <tr>
+                            <td>{{cookie.id}}</td>
+                            <td>{{cookie.first_name}}</td>
+                            <td>{{cookie.cookie_type}}</td>
+                            <td>{{cookie.num_of_boxes}}</td>
+                            <td><a href = "/update/{{cookie.id}}">Edit<a> | <a href = "/delete/{{cookie.id}}">Delete<a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <a href = '/order_up'>New Order<a>
+</body>
+</html>
